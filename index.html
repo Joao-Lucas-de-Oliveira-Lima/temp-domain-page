@@ -73,7 +73,7 @@
     /* HERO */
     .hero {
       padding: 140px 2rem 100px;
-      max-width: 780px;
+      max-width: 1040px;
       margin: 0 auto;
       width: 100%;
     }
@@ -112,7 +112,7 @@
     }
 
     .hero-desc {
-      font-size: 16px;
+      font-size: clamp(15px, 1.8vw, 16px);
       color: var(--text-secondary);
       line-height: 1.8;
       max-width: 560px;
@@ -137,7 +137,7 @@
 
     /* MAIN CONTENT */
     main {
-      max-width: 780px;
+      max-width: 1040px;
       margin: 0 auto;
       width: 100%;
       padding: 0 2rem 6rem;
@@ -166,6 +166,7 @@
       color: var(--text-secondary);
       line-height: 1.85;
       margin-bottom: 1rem;
+      max-width: 640px;
     }
 
     .about-body p:last-child { margin-bottom: 0; }
@@ -263,7 +264,7 @@
     footer {
       border-top: 1px solid var(--border-light);
       padding: 1.5rem 2rem;
-      max-width: 780px;
+      max-width: 1040px;
       margin: 0 auto;
       width: 100%;
       display: flex;
@@ -287,14 +288,34 @@
     }
 
     /* RESPONSIVE */
+    /* Tablet: tighten the side-by-side label/content grids */
+    @media (max-width: 820px) {
+      .hero { padding: 130px 1.5rem 90px; }
+      main { padding: 0 1.5rem 5rem; }
+      nav { padding: 0 1.5rem; }
+      footer { padding: 1.5rem 1.5rem; }
+      .about, .stack { grid-template-columns: 160px 1fr; gap: 2rem; }
+    }
+
+    /* Phone: stack everything into a single column */
     @media (max-width: 600px) {
-      .about, .stack { grid-template-columns: 1fr; gap: 1.25rem; }
-      .bottom { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about, .stack { grid-template-columns: 1fr; gap: 1.25rem; padding: 3rem 0; }
+      .bottom { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 0; }
       h1 { letter-spacing: -0.5px; }
-      .hero { padding: 110px 1.25rem 80px; }
+      .hero { padding: 100px 1.25rem 70px; }
       main { padding: 0 1.25rem 4rem; }
-      nav { padding: 0 1.25rem; }
+      nav { padding: 0 1.25rem; height: 52px; }
       footer { padding: 1.5rem 1.25rem; }
+    }
+
+    /* Small phone: prevent overflow and keep the email readable */
+    @media (max-width: 380px) {
+      .hero { padding: 90px 1rem 60px; }
+      main { padding: 0 1rem 3rem; }
+      nav { padding: 0 1rem; }
+      footer { padding: 1.25rem 1rem; }
+      .contact-link { font-size: 13px; word-break: break-all; }
+      .hero-cta { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -309,7 +330,7 @@
     <div class="hero-tag">Desenvolvedor de software</div>
     <h1>Produtos digitais feitos com <em>cuidado</em></h1>
     <p class="hero-desc">
-      Desenvolvo aplicativos mobile e sistemas backend com foco em qualidade, desempenho e experiência do usuário. Baseado em Quixadá, CE — Brasil.
+      Desenvolvo aplicativos mobile e sistemas backend com foco em qualidade, desempenho e experiência do usuário.
     </p>
     <a href="mailto:joaolucasdeoliveiralima2@gmail.com" class="hero-cta">
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
